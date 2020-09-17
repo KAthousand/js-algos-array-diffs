@@ -15,6 +15,7 @@
 // 
 
 
+//-----------------Method 1--------------------
 
 // const arrayDiffs = (arr1, arr2) => {
 
@@ -33,20 +34,34 @@
 //   return uniqueNums;
 // }
 
+//-----------------Method 2--------------------
+
+// const arrayDiffs = (arr1, arr2) => {
+
+//   let uniqueNums = [];
+
+//   arr1.forEach((num) => {
+//     arr2.includes(num) ? null : uniqueNums.push(num);
+//   })
+
+//   arr2.forEach((num) => {
+//     arr1.includes(num) ? null : uniqueNums.push(num);
+//   })
+
+//   return uniqueNums;
+// }
+
+//-----------------Method 3--------------------
+
 const arrayDiffs = (arr1, arr2) => {
 
-  let uniqueNums = [];
+  return uniqueNums = arr1
+    .filter((num) => !arr2.includes(num))
+    .concat(arr2.filter((num) => !arr1.includes(num)))
 
-  arr1.forEach((num) => {
-    arr2.includes(num) ? null : uniqueNums.push(num);
-  })
+};
 
-  arr2.forEach((num) => {
-    arr1.includes(num) ? null : uniqueNums.push(num);
-  })
 
-  return uniqueNums;
-}
 
 console.log(arrayDiffs([1, 44, 2, 3, 5], [33, 1, 2, 3, 4, 5]));
 
